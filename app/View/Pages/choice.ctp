@@ -3,13 +3,13 @@
         style="width: 90%; margin-left:auto; margin-right:auto; align:center; text-align:center;">
         <li>
             <?php
-            echo $this->Html->link('<h2>' . __('Create') . '</h2>',
+            echo $this->Html->link($this->Html->image('create.png') . '<h2>' . __('Create') .'</h2>',
                 array('controller' => 'pages', 'action' => 'display', 'create', 'game' => $this->params['named']['game']),
                 array('escape' => false));
             ?>
         <li>
             <?php
-            echo $this->Html->link('<h2>' . __('Join') . '</h2>',
+            echo $this->Html->link($this->Html->image('join.png') . '<h2>' . __('Join') .'</h2>',
                 array('controller' => 'pages', 'action' => 'display', 'join', 'game' => $this->params['named']['game']),
                 array('escape' => false));
             ?>

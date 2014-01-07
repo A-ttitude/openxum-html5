@@ -21,7 +21,14 @@
             var engine = new Yinsh.Engine(<?php echo ($this->params['named']['mode'] == 'regular') ? 'Yinsh.GameType.REGULAR' : 'Yinsh.GameType.BLITZ'; ?>,
                 <?php echo ($this->params['named']['color'] == 'black') ? 'Yinsh.Color.BLACK' : 'Yinsh.Color.WHITE'; ?>);
             var gui = new Yinsh.GuiPlayer(<?php echo ($this->params['named']['color'] == 'black') ? 'Yinsh.Color.BLACK' : 'Yinsh.Color.WHITE'; ?>, engine);
+
+            <?php if($this->params['named']['type'] == 'ia') {?>
             var other = new Yinsh.RandomPlayer(<?php echo ($this->params['named']['color'] == 'black') ? 'Yinsh.Color.WHITE' : 'Yinsh.Color.BLACK'; ?>, engine);
+
+            <?php } else { ?>
+            var other = new Yinsh.GuiPlayer(<?php echo ($this->params['named']['color'] == 'black') ? 'Yinsh.Color.WHITE' : 'Yinsh.Color.BLACK'; ?>, engine);
+            <?php } ?>
+
             var manager = new Yinsh.Manager(engine, gui, other, new Yinsh.Status(markerNumber, turnList));
 
             if (canvas_div.clientHeight < canvas_div.clientWidth) {
